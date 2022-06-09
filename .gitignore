@@ -1,0 +1,12 @@
+__pycache__
+Include
+Lib
+Scripts
+
+*.json
+*.cfg
+
+
+google_api.py
+utils.py
+settings.py
