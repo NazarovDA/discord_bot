@@ -8,6 +8,8 @@ import asyncio
 import settings
 import datetime
 
+import requests
+
 class Client(discord.Client):
     channelToCreateTempChannelsId: int = settings.__TEMP_CHANNEL_CREATING_CHANNEL_ID__
     temporaryChannels: list[VoiceChannel] = list()
@@ -17,7 +19,26 @@ class Client(discord.Client):
         await self.__check_milestones()
 
     async def on_message(self, message: discord.Message):
-        print(message)
+        if message.content.startswith(settings.__BOT_COMMAND_SYMBOL__):
+            _, command = message.content.split(settings.__BOT_COMMAND_SYMBOL__)
+            command, *args = command.split(" ")
+
+            command: str
+            args: list[str]
+
+            if command in ["cat", "fox", "dog", "bird"]:
+                r = requests.get(f'https://some-random-api.ml/img/{command}').json()
+
+                embed = discord.Embed(color=0xff9900, title=f"Your Random {command.capitalize()}")
+                embed.set_image(url=r["link"])
+
+                await self._send_embed(
+                    message=message, 
+                    embed=embed
+                )
+
+    async def _send_embed(self, message: discord.Message, embed: discord.Embed):
+        await message.reply(embed=embed)
 
     #  ----- temporary channel logic -----
     async def on_voice_state_update(self, member: Member, before: VoiceState, after: VoiceState):
@@ -78,7 +99,6 @@ class Client(discord.Client):
                         await member.remove_roles(_role)
                     except: 
                         pass
-
 
     
 if __name__ == "__main__":
