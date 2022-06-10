@@ -14,12 +14,7 @@ class Client(discord.Client):
 
     async def on_ready(self):
         print(f"Logged as {self.user}")
-        # await self.__check_milestones()
-        if not self.intents.members: return
-        guild: Guild = self.guilds[0]
-
-        async for member in guild.fetch_members():
-            print(member)
+        await self.__check_milestones()
 
     async def on_message(self, message: discord.Message):
         print(message)
@@ -64,14 +59,22 @@ class Client(discord.Client):
         """
         adding role for passing milestiones
         """
-        milestones: tuple[datetime.timedelta, datetime.timedelta, Role]
 
-        for member in self.guilds[0].members:
+        if not self.intents.members: return
+
+        guild: Guild = self.guilds[0]
+
+        milestones: tuple[tuple[datetime.timedelta, datetime.timedelta, Role]] = tuple([
+            tuple([datetime.timedelta(days=14), datetime.timedelta(days=3650), guild.get_role(984621908735701012)])
+        ])
+
+        async for member in self.guilds[0].fetch_members():
             member: Member
             for _from, _to, _role in milestones:
-                if _from < member.joined_at - datetime.datetime.now() <= _to:
-                    member.add_roles(_role)
-                    member.remove_roles([obj[2] for obj in milestones].remove(_role))
+                if _from < (datetime.datetime.now() - member.joined_at) <= _to:
+                    await member.add_roles(_role) # works
+
+                    #member.remove_roles([obj[2] for obj in milestones].remove(_role))
 
 
     
