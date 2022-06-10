@@ -72,9 +72,12 @@ class Client(discord.Client):
             member: Member
             for _from, _to, _role in milestones:
                 if _from < (datetime.datetime.now() - member.joined_at) <= _to:
-                    await member.add_roles(_role) # works
-
-                    #member.remove_roles([obj[2] for obj in milestones].remove(_role))
+                    await member.add_roles(_role)
+                else:
+                    try:
+                        await member.remove_roles(_role)
+                    except: 
+                        pass
 
 
     
