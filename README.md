@@ -7,7 +7,7 @@
 |№|<abbr title="Progress">❓</abbr>|Text
 |:-:|:-:|:-|
 |1| ✔ | Make special voice channel, in which when smb joined additional temporary voice channel created and then "maker" moved to that channel. After f.e. 2 minutes of being empty channel will be deleted.
-|2| 🚀 | Make possibility to create vote by using google forms and let bot gather information from it, process and then publish, also it would be possible to check it in spreadsheets
+|2| ✔ | Make possibility to create vote by using google forms and let bot gather information from it, process and then publish, also it would be possible to check it in spreadsheets
 |3| ❌ | Also it is possible to append funny thing for members, as rng or tails and heads
 |4| ✔ | Add roles assigned for passing "checkpoints" or "milestones", which are determined by the time of presence on this discord channel
 |5| ✔ | Random fox/kitten picture 🙂
