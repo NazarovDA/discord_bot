@@ -2,6 +2,11 @@ __pycache__
 Include
 Lib
 Scripts
+etc
+share
+temp
+
+*.exe
 
 *.json
 *.cfg
@@ -10,3 +15,4 @@ Scripts
 google_api.py
 utils.py
 settings.py
+test.py
