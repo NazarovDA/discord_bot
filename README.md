@@ -13,3 +13,4 @@
 |5| ✔ | Random fox/kitten picture 🙂
 |6| 🚀 | We can look how much do people spend in discord, how active they are and let all know, who is the most active member in guild
 |7| ❌ | Let people opportunity to send to bot pictures with builds, and then he\she will send them back, when you ask for it, like, f.e. you send for but, uhm, dex dd build, and then I want to look at dex build and bot send me your screen(and another if there any), then, after, like 10 mins delete message, so no spam left
+| 8 | ✔ | I also want to try adding the ability to launch music through the bot so that you can turn it on on the channel. According to my plan, the bot will connect to the voice channel, launch a video from YouTube. The same task was performed by bots such as Rythm Bot, if you know such
